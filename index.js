@@ -1,40 +1,8 @@
 import Book from './modules/book.js'
 import Store from './modules/store.js'
 import pages from './modules/multipage.js'
-import { DateTime } from 'luxon'
-
-// UI class
-class UI {
-  static displayBooks () {
-    const books = Store.getBooks()
-    books.forEach((book) => UI.addBookToList(book))
-  }
-
-  static addBookToList (book) {
-    const list = document.getElementById('book-list')
-    const div = document.createElement('div')
-
-    div.innerHTML = `
-             <div class="book">
-               <p>"${book.title}" by ${book.author}</p>
-               <button onclick="Store.removeBook(${book.id})" class="btn delete">Remove</button>
-              </div>
-            `
-
-    list.appendChild(div)
-  }
-
-  static deleteBook (elem) {
-    if (elem.classList.contains('delete')) {
-      elem.parentElement.remove()
-    }
-  }
-
-  static clearFields () {
-    document.querySelector('#title').value = ''
-    document.querySelector('#author').value = ''
-  }
-}
+import UI from './modules/uiClass.js'
+import { DateTime } from './node_modules/luxon/src/luxon.js'
 
 document.addEventListener('DOMContentLoaded', UI.displayBooks)
 
@@ -61,8 +29,20 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
 // Event: Remove a Book from UI
 document.querySelector('#book-list').addEventListener('click', (e) => {
   UI.deleteBook(e.target)
+  //   console.log(e.target)
 })
 
 pages()
 
 console.log(DateTime.now())
+
+// function delBook () {
+//   let books = []
+//   books = JSON.parse(window.localStorage.getItem('books'))
+
+//   const pushedBtn = document.querySelectorAll('div')
+//   console.log(pushedBtn)
+//   window.localStorage.setItem('books', JSON.stringify(books))
+// }
+
+// delBook ()
