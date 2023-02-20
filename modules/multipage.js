@@ -1,6 +1,6 @@
 // page switch 
 
-export function multiPage() {
+export const multiPage = () => {
   const list = document.querySelector('.list');
   const addNew = document.querySelector('.add-new');
   const contact = document.querySelector('.contact');
