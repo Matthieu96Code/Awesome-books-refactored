@@ -1,7 +1,7 @@
 
 // Store Class
 
-class Store {
+export class Store {
     static getBooks() {
       let books;
       if (localStorage.getItem('books') === null) {
