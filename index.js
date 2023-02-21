@@ -31,14 +31,12 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
 // Event: Remove a Book from UI
 document.querySelector('#book-list').addEventListener('click', (e) => {
   UI.deleteBook(e.target)
-  //   console.log(e.target)
 })
 
 pages()
 
 setInterval(() => {
-  const date = DateTime.local().toFormat('M/dd/yyyy')
-  const now = DateTime.local().toFormat('HH:mm:ss')
+  const date = DateTime.local().toFormat('FF')
   const time = document.querySelector('.clock-section')
-  time.innerHTML = `Date : ${date} <br> Time : ${now}`
+  time.innerHTML = `${date}`
 }, 1000)

@@ -56,6 +56,9 @@ body {
 .clock-section {
   font-weight: 100;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3%;
 }
 
 .ul-contact li {
