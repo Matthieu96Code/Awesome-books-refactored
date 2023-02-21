@@ -2,12 +2,12 @@ import Store from './store.js'
 
 // UI class
 export default class UI {
-  static displayBooks () {
+  static displayBooks = () => {
     const books = Store.getBooks()
     books.forEach((book) => UI.addBookToList(book))
   }
 
-  static addBookToList (book) {
+  static addBookToList = (book) => {
     const list = document.getElementById('book-list')
     const div = document.createElement('div')
 
@@ -21,7 +21,7 @@ export default class UI {
     list.appendChild(div)
   }
 
-  static deleteBook (elem) {
+  static deleteBook = (elem) => {
     if (elem.classList.contains('delete')) {
       elem.parentElement.remove()
       const books = Store.getBooks()
@@ -34,7 +34,7 @@ export default class UI {
     }
   }
 
-  static clearFields () {
+  static clearFields = () => {
     document.querySelector('#title').value = ''
     document.querySelector('#author').value = ''
   }
