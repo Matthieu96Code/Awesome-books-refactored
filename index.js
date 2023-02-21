@@ -2,7 +2,7 @@ import Book from './modules/book.js'
 import Store from './modules/store.js'
 import pages from './modules/multipage.js'
 import UI from './modules/uiClass.js'
-import { DateTime } from './node_modules/luxon/src/luxon.js'
+import { DateTime } from './modules/luxon.js'
 
 if (window.localStorage.getItem('books')) {
   document.addEventListener('DOMContentLoaded', UI.displayBooks)
@@ -41,4 +41,4 @@ setInterval(() => {
   const now = DateTime.local().toFormat('HH:mm:ss')
   const time = document.querySelector('.clock-section')
   time.innerHTML = `Date : ${date} <br> Time : ${now}`
-}, 1000);
+}, 1000)
