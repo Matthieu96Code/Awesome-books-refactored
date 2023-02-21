@@ -14,7 +14,7 @@ export default class UI {
     div.innerHTML = `
                <div class="book">
                  <p>"${book.title}" by ${book.author}</p>
-                 <button onclick="Store.removeBook(${book.id})" class="btn delete">Remove</button>
+                 <button id="${book.id}" class="btn delete">Remove</button>
                 </div>
               `
 
@@ -24,6 +24,13 @@ export default class UI {
   static deleteBook (elem) {
     if (elem.classList.contains('delete')) {
       elem.parentElement.remove()
+      const books = Store.getBooks()
+      books.forEach((book, index) => {
+        if (book.id === parseInt(elem.id)) {
+          books.splice(index, 1)
+        }
+      })
+      window.localStorage.setItem('books', JSON.stringify(books))
     }
   }
 

@@ -4,7 +4,9 @@ import pages from './modules/multipage.js'
 import UI from './modules/uiClass.js'
 import { DateTime } from './node_modules/luxon/src/luxon.js'
 
-document.addEventListener('DOMContentLoaded', UI.displayBooks)
+if (window.localStorage.getItem('books')) {
+  document.addEventListener('DOMContentLoaded', UI.displayBooks)
+}
 
 // Event: Add a Book
 document.getElementById('book-form').addEventListener('submit', (e) => {
@@ -34,15 +36,9 @@ document.querySelector('#book-list').addEventListener('click', (e) => {
 
 pages()
 
-console.log(DateTime.now())
-
-// function delBook () {
-//   let books = []
-//   books = JSON.parse(window.localStorage.getItem('books'))
-
-//   const pushedBtn = document.querySelectorAll('div')
-//   console.log(pushedBtn)
-//   window.localStorage.setItem('books', JSON.stringify(books))
-// }
-
-// delBook ()
+setInterval(() => {
+  const date = DateTime.local().toFormat('M/dd/yyyy')
+  const now = DateTime.local().toFormat('HH:mm:ss')
+  const time = document.querySelector('.clock-section')
+  time.innerHTML = `Date : ${date} <br> Time : ${now}`
+}, 1000);

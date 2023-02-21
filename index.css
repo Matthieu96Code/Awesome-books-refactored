@@ -52,6 +52,11 @@ html {
     border-left: 2px solid black;
     padding-left: 20px;
   }
+
+  .clock-section {
+    font-weight: 100;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
   
   .ul-contact li {
     font-weight: 100;
